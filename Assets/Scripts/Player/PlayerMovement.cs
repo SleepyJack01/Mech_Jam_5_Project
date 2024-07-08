@@ -116,5 +116,10 @@ public class PlayerMovement : MonoBehaviour
     {
         twinStickInput = context.ReadValue<Vector2>();
     }
+
+    public void OnModeSwitch(InputAction.CallbackContext context)
+    {
+        twinStickMovement = !twinStickMovement;
+    }
     
 }

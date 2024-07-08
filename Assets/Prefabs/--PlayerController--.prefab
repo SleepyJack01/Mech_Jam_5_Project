@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 9160461239084404081}
   - component: {fileID: 5305982737399534404}
   - component: {fileID: 5244092080846412309}
+  - component: {fileID: 6018080520359916936}
   m_Layer: 0
   m_Name: --PlayerController--
   m_TagString: Player
@@ -130,7 +131,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b48e98b67d3087b429389d733e9e686e, type: 2}
+  - {fileID: 2100000, guid: 01364f3f04adc8f4291021db52db177f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -240,8 +241,21 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4247524185024124897, guid: 5ee38a8af40617444bb1cedd37e26be8,
     type: 3}
   projectileSpawnPoint: {fileID: 1938896642032891432}
-  projectileSpeed: 20
+  projectileSpeed: 30
   fireRate: 0.2
+--- !u!114 &6018080520359916936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4162134295992271797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71bb103d94bc4b468ad7be9df74061c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &7445327037349916950
 GameObject:
   m_ObjectHideFlags: 0

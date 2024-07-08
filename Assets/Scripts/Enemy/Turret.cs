@@ -25,6 +25,13 @@ public class Turret : MonoBehaviour
 
     void UpdateTarget()
     {
+        // Check if the player GameObject is active
+        if (!player.activeSelf)
+        {
+            target = null;
+            return;
+        }
+
         float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
         if (distanceToPlayer <= range)
         {

@@ -45,10 +45,15 @@ public class CombatHandler : MonoBehaviour
         StartCoroutine(ShootingCooldown());
     }
 
+    public void ResetShootingCooldown()
+    {
+        isShootingCooldown = false;
+    }
+
     IEnumerator ShootingCooldown()
     {
         isShootingCooldown = true;
-        yield return new WaitForSeconds(fireRate); // Wait for the specified delay
+        yield return new WaitForSeconds(fireRate);
         isShootingCooldown = false;
     }
 
