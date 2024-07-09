@@ -22,6 +22,12 @@ public class PlayerHealthHandler : MonoBehaviour
     // Function to handle taking damage
     public void TakeDamage(int damage)
     {
+        //return if player is not active
+        if (!gameObject.activeInHierarchy)
+        {
+            return;
+        }
+
         Debug.Log(gameObject.name + " took " + damage + " damage.");
 
         currentHealth -= damage;

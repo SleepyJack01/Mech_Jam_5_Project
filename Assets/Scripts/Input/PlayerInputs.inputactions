@@ -40,15 +40,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Aim Mode",
-                    "type": "Button",
-                    "id": "c50fd8f6-3fe1-4d35-a6c7-c8b7c2f81e45",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -121,7 +112,7 @@
                 {
                     "name": "",
                     "id": "6c86efc7-f0ab-4316-a562-8e881c883c3a",
-                    "path": "<Mouse>/delta",
+                    "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard and Mouse",
@@ -134,7 +125,7 @@
                     "id": "010020ee-5ea2-4571-a826-c5f4bf0093df",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "StickDeadzone",
                     "groups": "Gamepad",
                     "action": "Aim",
                     "isComposite": false,
@@ -192,28 +183,6 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Menu Button",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "85d43adc-b43f-44f8-93f8-30130774b741",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard and Mouse",
-                    "action": "Aim Mode",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b1c977d8-4761-4b96-b64e-911dd3865627",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Aim Mode",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
