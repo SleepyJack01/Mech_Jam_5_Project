@@ -62,15 +62,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Aim Mode"",
-                    ""type"": ""Button"",
-                    ""id"": ""c50fd8f6-3fe1-4d35-a6c7-c8b7c2f81e45"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -143,7 +134,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6c86efc7-f0ab-4316-a562-8e881c883c3a"",
-                    ""path"": ""<Mouse>/delta"",
+                    ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
@@ -156,7 +147,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""id"": ""010020ee-5ea2-4571-a826-c5f4bf0093df"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone"",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Aim"",
                     ""isComposite"": false,
@@ -216,28 +207,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Menu Button"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""85d43adc-b43f-44f8-93f8-30130774b741"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""Aim Mode"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b1c977d8-4761-4b96-b64e-911dd3865627"",
-                    ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Aim Mode"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -278,7 +247,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_PlayerControls_Aim = m_PlayerControls.FindAction("Aim", throwIfNotFound: true);
         m_PlayerControls_Fire = m_PlayerControls.FindAction("Fire", throwIfNotFound: true);
         m_PlayerControls_MenuButton = m_PlayerControls.FindAction("Menu Button", throwIfNotFound: true);
-        m_PlayerControls_AimMode = m_PlayerControls.FindAction("Aim Mode", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -344,7 +312,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerControls_Aim;
     private readonly InputAction m_PlayerControls_Fire;
     private readonly InputAction m_PlayerControls_MenuButton;
-    private readonly InputAction m_PlayerControls_AimMode;
     public struct PlayerControlsActions
     {
         private @PlayerInputs m_Wrapper;
@@ -353,7 +320,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @Aim => m_Wrapper.m_PlayerControls_Aim;
         public InputAction @Fire => m_Wrapper.m_PlayerControls_Fire;
         public InputAction @MenuButton => m_Wrapper.m_PlayerControls_MenuButton;
-        public InputAction @AimMode => m_Wrapper.m_PlayerControls_AimMode;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -375,9 +341,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @MenuButton.started += instance.OnMenuButton;
             @MenuButton.performed += instance.OnMenuButton;
             @MenuButton.canceled += instance.OnMenuButton;
-            @AimMode.started += instance.OnAimMode;
-            @AimMode.performed += instance.OnAimMode;
-            @AimMode.canceled += instance.OnAimMode;
         }
 
         private void UnregisterCallbacks(IPlayerControlsActions instance)
@@ -394,9 +357,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @MenuButton.started -= instance.OnMenuButton;
             @MenuButton.performed -= instance.OnMenuButton;
             @MenuButton.canceled -= instance.OnMenuButton;
-            @AimMode.started -= instance.OnAimMode;
-            @AimMode.performed -= instance.OnAimMode;
-            @AimMode.canceled -= instance.OnAimMode;
         }
 
         public void RemoveCallbacks(IPlayerControlsActions instance)
@@ -438,6 +398,5 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnAim(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnMenuButton(InputAction.CallbackContext context);
-        void OnAimMode(InputAction.CallbackContext context);
     }
 }

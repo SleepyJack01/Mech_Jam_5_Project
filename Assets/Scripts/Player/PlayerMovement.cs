@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("References")]
     [SerializeField] CharacterController controller;
     [SerializeField] Transform modelsTransform;
+    [SerializeField] PlayerInput playerInput;
 
     [Header("Input Varibles")]
     private Vector2 currentMovementInput;
@@ -23,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float rotationSpeed = 15f;
 
     [Header("Twin Stick Movement Settings")]
-    [SerializeField] bool twinStickMovement = false;
+    [SerializeField] bool isGamepad;
     [SerializeField] Vector2 twinStickInput;
 
     [Header("Gravity Settings")]
@@ -49,14 +50,36 @@ public class PlayerMovement : MonoBehaviour
     {
         ApplyGravity();
         MovementHandler();
-        
-        if (twinStickMovement)
+
+        if (isGamepad)
         {
-            TwinStickRotation();
+            //Set Rotational mode type if there is twin stick input
+            if (twinStickInput != Vector2.zero)
+            {
+                TwinStickRotation();
+            }
+            else
+            {
+                ModelRotation();
+            }
         }
         else
         {
-            ModelRotation();
+            MouseRotation();
+        }
+        
+        
+    }
+
+    public void SetGamepad()
+    {
+        if(playerInput.currentControlScheme == "Gamepad")
+        {
+            isGamepad = true;
+        }
+        else
+        {
+            isGamepad = false;
         }
     }
 
@@ -104,7 +127,21 @@ public class PlayerMovement : MonoBehaviour
         {
             modelsTransform.rotation = Quaternion.Slerp(modelsTransform.rotation, Quaternion.LookRotation(currentModelRotation), Time.deltaTime * rotationSpeed);
         }
-        
+    }
+
+    //Twinstick style rotation for mouse. Rotates player towards cursor.
+    private void MouseRotation()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(twinStickInput);
+        Plane plane = new Plane(Vector3.up, transform.position);
+        float distance;
+        if (plane.Raycast(ray, out distance))
+        {
+            Vector3 target = ray.GetPoint(distance);
+            Vector3 direction = target - transform.position;
+            direction.y = 0;
+            modelsTransform.rotation = Quaternion.Slerp(modelsTransform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * rotationSpeed);
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -114,12 +151,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnAim(InputAction.CallbackContext context)
     {
+        //stores the mouses postion
         twinStickInput = context.ReadValue<Vector2>();
     }
-
-    public void OnModeSwitch(InputAction.CallbackContext context)
-    {
-        twinStickMovement = !twinStickMovement;
-    }
-    
 }
