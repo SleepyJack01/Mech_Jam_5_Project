@@ -372,7 +372,7 @@ MonoBehaviour:
   firePoint: {fileID: 8433512139755680999}
   bulletPrefab: {fileID: 4247524185024124897, guid: adb2f88b2f6ab464f82ed4f9215722c5,
     type: 3}
-  range: 12
+  range: 15
   turretRotationSpeed: 2
   fireRate: 1
   projectileSpeed: 30

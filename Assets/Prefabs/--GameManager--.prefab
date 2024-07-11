@@ -351,8 +351,8 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CombatHandler, Assembly-CSharp
-        m_MethodName: OnFire
+        m_TargetAssemblyTypeName: WeaponHandler, Assembly-CSharp
+        m_MethodName: onFire
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -369,7 +369,19 @@ MonoBehaviour:
     m_ActionId: ba2e2d82-7c0e-420e-ae88-64ae42cad24c
     m_ActionName: PlayerControls/Menu Button[/Keyboard/escape,/XInputControllerWindows/start]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: WeaponHandler, Assembly-CSharp
+        m_MethodName: onWeaponSwitch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 389899f5-c581-48a1-8215-fb9ef09beff9
     m_ActionName: PlayerControls/Weapon Cycle[/Mouse/scroll/down,/Mouse/scroll/up,/XInputControllerWindows/dpad/left,/XInputControllerWindows/dpad/right]
   m_NeverAutoSwitchControlSchemes: 0
@@ -402,7 +414,7 @@ PrefabInstance:
     - target: {fileID: 1685786555838113084, guid: 088b312aa7e222344ab86b118da172f3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.787536
+      value: -13.5
       objectReference: {fileID: 0}
     - target: {fileID: 1685786555838113084, guid: 088b312aa7e222344ab86b118da172f3,
         type: 3}
@@ -412,7 +424,7 @@ PrefabInstance:
     - target: {fileID: 1685786555838113084, guid: 088b312aa7e222344ab86b118da172f3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.098632
+      value: 14.174999
       objectReference: {fileID: 0}
     - target: {fileID: 1685786555838113084, guid: 088b312aa7e222344ab86b118da172f3,
         type: 3}
@@ -476,7 +488,7 @@ PrefabInstance:
     - target: {fileID: 1685786555838113084, guid: 088b312aa7e222344ab86b118da172f3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.462464
+      value: 13.5
       objectReference: {fileID: 0}
     - target: {fileID: 1685786555838113084, guid: 088b312aa7e222344ab86b118da172f3,
         type: 3}
@@ -486,7 +498,7 @@ PrefabInstance:
     - target: {fileID: 1685786555838113084, guid: 088b312aa7e222344ab86b118da172f3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.098632
+      value: 14.174999
       objectReference: {fileID: 0}
     - target: {fileID: 1685786555838113084, guid: 088b312aa7e222344ab86b118da172f3,
         type: 3}
@@ -550,7 +562,7 @@ PrefabInstance:
     - target: {fileID: 1685786555838113084, guid: 088b312aa7e222344ab86b118da172f3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.5000005
+      value: -14
       objectReference: {fileID: 0}
     - target: {fileID: 1685786555838113084, guid: 088b312aa7e222344ab86b118da172f3,
         type: 3}
@@ -560,7 +572,7 @@ PrefabInstance:
     - target: {fileID: 1685786555838113084, guid: 088b312aa7e222344ab86b118da172f3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.675
+      value: -13.674999
       objectReference: {fileID: 0}
     - target: {fileID: 1685786555838113084, guid: 088b312aa7e222344ab86b118da172f3,
         type: 3}
@@ -624,7 +636,7 @@ PrefabInstance:
     - target: {fileID: 1685786555838113084, guid: 088b312aa7e222344ab86b118da172f3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.926963
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1685786555838113084, guid: 088b312aa7e222344ab86b118da172f3,
         type: 3}
@@ -634,7 +646,7 @@ PrefabInstance:
     - target: {fileID: 1685786555838113084, guid: 088b312aa7e222344ab86b118da172f3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.675
+      value: -13.675
       objectReference: {fileID: 0}
     - target: {fileID: 1685786555838113084, guid: 088b312aa7e222344ab86b118da172f3,
         type: 3}

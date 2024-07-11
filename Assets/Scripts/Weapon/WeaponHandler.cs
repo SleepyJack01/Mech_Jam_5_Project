@@ -9,6 +9,7 @@ public class WeaponHandler : MonoBehaviour
     private GameObject []weaponArray;
     private GameObject currentWeapon;
     private int currentWeaponIndex = 0;
+    private bool isFiring = false;
 
     private void Start()
     {
@@ -23,12 +24,25 @@ public class WeaponHandler : MonoBehaviour
         currentWeapon.SetActive(true);
     }
 
+    private void Update()
+    {
+        if (isFiring)
+        {
+            currentWeapon.GetComponent<WeaponCharacteristics>().FireProjectile();
+        }
+    }
+
     private void SwitchToNextWeapon()
     {
         currentWeapon.SetActive(false);
         currentWeaponIndex = (currentWeaponIndex + 1) % weaponArray.Length;
         currentWeapon = weaponArray[currentWeaponIndex];
         currentWeapon.SetActive(true);
+
+        // reset the shooting cooldown
+        currentWeapon.GetComponent<WeaponCharacteristics>().ResetShootingCooldown();
+        // reset the ammo
+        currentWeapon.GetComponent<WeaponCharacteristics>().ResetAmmo();
     }
 
     private void SwitchToPreviousWeapon()
@@ -37,6 +51,11 @@ public class WeaponHandler : MonoBehaviour
         currentWeaponIndex = (currentWeaponIndex - 1 + weaponArray.Length) % weaponArray.Length;
         currentWeapon = weaponArray[currentWeaponIndex];
         currentWeapon.SetActive(true);
+
+        // reset the shooting cooldown
+        currentWeapon.GetComponent<WeaponCharacteristics>().ResetShootingCooldown();
+        // reset the ammo
+        currentWeapon.GetComponent<WeaponCharacteristics>().ResetAmmo();
     }
     
     public void onWeaponSwitch(InputAction.CallbackContext context)
@@ -58,7 +77,19 @@ public class WeaponHandler : MonoBehaviour
     {
         if (context.performed)
         {
-            currentWeapon.GetComponent<WeaponCharacteristics>().FireProjectile();
+            isFiring = true;
+        }
+        else if (context.canceled)
+        {
+            isFiring = false;
+        }
+    }
+
+    public void onReload(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            currentWeapon.GetComponent<WeaponCharacteristics>().ReloadWeapon();
         }
     }
 

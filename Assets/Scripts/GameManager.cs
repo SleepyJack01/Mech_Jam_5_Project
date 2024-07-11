@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
         player.SetActive(true);
 
         player.GetComponent<PlayerHealthHandler>().ResetHealthAndColor();
-        player.GetComponent<CombatHandler>().ResetShootingCooldown();
+        player.GetComponentInChildren<WeaponCharacteristics>().ResetShootingCooldown();
+        player.GetComponentInChildren<WeaponCharacteristics>().ResetAmmo();
     }
 }

@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Reload",
+                    "type": "Button",
+                    "id": "5b4e4b66-fe30-40c0-9497-d1a3d5979d0a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -196,7 +205,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Scroll Wheel",
+                    "name": "Scroll Wheel Up/Down",
                     "id": "22d93729-4c59-43f2-a383-cde2fd2be937",
                     "path": "1DAxis",
                     "interactions": "",
@@ -229,7 +238,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Dpad",
+                    "name": "Dpad Left/Right",
                     "id": "9df54032-9e1b-4b5c-9a7b-23782a0dcb3d",
                     "path": "1DAxis",
                     "interactions": "",
@@ -260,6 +269,28 @@
                     "action": "Weapon Cycle",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "cfda6084-3aa0-4fff-81de-26f97f990281",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0fab1e02-dedd-4bd1-be68-bf9c9564b208",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

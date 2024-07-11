@@ -30,7 +30,6 @@ public class EnemyHealthHandler : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Debug.Log(gameObject.name + " took " + damage + " damage.");
         currentHealth -= damage;
 
         StartCoroutine(FlashRed());
@@ -68,7 +67,6 @@ public class EnemyHealthHandler : MonoBehaviour
 
     void Die()
     {
-        Debug.Log(gameObject.name + " died.");
         Destroy(gameObject);
     }
 }

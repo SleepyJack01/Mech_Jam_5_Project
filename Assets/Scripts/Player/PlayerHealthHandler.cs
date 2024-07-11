@@ -28,8 +28,6 @@ public class PlayerHealthHandler : MonoBehaviour
             return;
         }
 
-        Debug.Log(gameObject.name + " took " + damage + " damage.");
-
         currentHealth -= damage;
         StartCoroutine(FlashRed());
 

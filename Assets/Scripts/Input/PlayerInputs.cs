@@ -71,6 +71,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Reload"",
+                    ""type"": ""Button"",
+                    ""id"": ""5b4e4b66-fe30-40c0-9497-d1a3d5979d0a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -218,7 +227,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""Scroll Wheel"",
+                    ""name"": ""Scroll Wheel Up/Down"",
                     ""id"": ""22d93729-4c59-43f2-a383-cde2fd2be937"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
@@ -251,7 +260,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Dpad"",
+                    ""name"": ""Dpad Left/Right"",
                     ""id"": ""9df54032-9e1b-4b5c-9a7b-23782a0dcb3d"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
@@ -282,6 +291,28 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Weapon Cycle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cfda6084-3aa0-4fff-81de-26f97f990281"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0fab1e02-dedd-4bd1-be68-bf9c9564b208"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -323,6 +354,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_PlayerControls_Fire = m_PlayerControls.FindAction("Fire", throwIfNotFound: true);
         m_PlayerControls_MenuButton = m_PlayerControls.FindAction("Menu Button", throwIfNotFound: true);
         m_PlayerControls_WeaponCycle = m_PlayerControls.FindAction("Weapon Cycle", throwIfNotFound: true);
+        m_PlayerControls_Reload = m_PlayerControls.FindAction("Reload", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -389,6 +421,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerControls_Fire;
     private readonly InputAction m_PlayerControls_MenuButton;
     private readonly InputAction m_PlayerControls_WeaponCycle;
+    private readonly InputAction m_PlayerControls_Reload;
     public struct PlayerControlsActions
     {
         private @PlayerInputs m_Wrapper;
@@ -398,6 +431,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @Fire => m_Wrapper.m_PlayerControls_Fire;
         public InputAction @MenuButton => m_Wrapper.m_PlayerControls_MenuButton;
         public InputAction @WeaponCycle => m_Wrapper.m_PlayerControls_WeaponCycle;
+        public InputAction @Reload => m_Wrapper.m_PlayerControls_Reload;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -422,6 +456,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @WeaponCycle.started += instance.OnWeaponCycle;
             @WeaponCycle.performed += instance.OnWeaponCycle;
             @WeaponCycle.canceled += instance.OnWeaponCycle;
+            @Reload.started += instance.OnReload;
+            @Reload.performed += instance.OnReload;
+            @Reload.canceled += instance.OnReload;
         }
 
         private void UnregisterCallbacks(IPlayerControlsActions instance)
@@ -441,6 +478,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @WeaponCycle.started -= instance.OnWeaponCycle;
             @WeaponCycle.performed -= instance.OnWeaponCycle;
             @WeaponCycle.canceled -= instance.OnWeaponCycle;
+            @Reload.started -= instance.OnReload;
+            @Reload.performed -= instance.OnReload;
+            @Reload.canceled -= instance.OnReload;
         }
 
         public void RemoveCallbacks(IPlayerControlsActions instance)
@@ -483,5 +523,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnFire(InputAction.CallbackContext context);
         void OnMenuButton(InputAction.CallbackContext context);
         void OnWeaponCycle(InputAction.CallbackContext context);
+        void OnReload(InputAction.CallbackContext context);
     }
 }
