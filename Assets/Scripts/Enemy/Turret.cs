@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst;
 using UnityEngine;
 
 public class Turret : MonoBehaviour
@@ -10,16 +11,27 @@ public class Turret : MonoBehaviour
     [SerializeField] private Transform gunTransform;
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject bulletPrefab;
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip []shootSound;
 
     [Header("Varibles")]
-    [SerializeField] private float range = 15f;
+    [SerializeField] private float visionRange = 15f;
     [SerializeField] private float turretRotationSpeed = 5f;
     [SerializeField] private float fireRate = 1f;
+    [SerializeField] private float burstRate = 0.5f;
     private float fireCountdown = 0f;
     [SerializeField] private float projectileSpeed = 20f;
+    [SerializeField] private float projectileSpread = 0.1f;
+    [SerializeField] private float projectileLifeTime = 5f;
+    [SerializeField] private float fovAngle = 45f;
+
+    [SerializeField] bool burstFireMode = true;
+    private bool isPlayerInFOV = false;
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        audioSource = GetComponent<AudioSource>();
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
@@ -32,8 +44,9 @@ public class Turret : MonoBehaviour
             return;
         }
 
+        // Check if the player is within range
         float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
-        if (distanceToPlayer <= range)
+        if (distanceToPlayer <= visionRange)
         {
             target = player.transform;
         }
@@ -41,6 +54,30 @@ public class Turret : MonoBehaviour
         {
             target = null;
         }
+
+        //check if player is in field of view of fire point and sight is not blocked
+        Vector3 directionToPlayer = player.transform.position - firePoint.position;
+        float angle = Vector3.Angle(firePoint.forward, directionToPlayer);
+        if (angle < fovAngle)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(firePoint.position, directionToPlayer, out hit, visionRange))
+            {
+                if (hit.transform.CompareTag("Player"))
+                {
+                    isPlayerInFOV = true;
+                }
+                else
+                {
+                    isPlayerInFOV = false;
+                }
+            }
+        }
+        else
+        {
+            isPlayerInFOV = false;
+        }
+        
     }
 
     void Update()
@@ -55,29 +92,61 @@ public class Turret : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(gunTransform.rotation, lookRotation, Time.deltaTime * turretRotationSpeed).eulerAngles;
         gunTransform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
-        if (fireCountdown <= 0f)
+        // fires a burst of 3 bullets before entering a cooldown
+        if (fireCountdown <= 0f && isPlayerInFOV)
         {
-            Shoot();
+            if (burstFireMode)
+            {
+                StartCoroutine(FireBurst());
+            }
+            else
+            {
+                Shoot();
+            }
             fireCountdown = 1f / fireRate;
         }
 
         fireCountdown -= Time.deltaTime;
     }
 
+    IEnumerator FireBurst()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            Shoot();
+            yield return new WaitForSeconds(burstRate);
+        }
+    }
+
     void Shoot()
     {
+        audioSource.PlayOneShot(shootSound[UnityEngine.Random.Range(0, shootSound.Length)]);
+
         GameObject projectile = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
-        rb.AddForce(firePoint.forward * projectileSpeed, ForceMode.Impulse);
 
-        // destroy the projectile after 5 seconds
-        Destroy(projectile, 5f);
+        // Apply spread to the projectile
+        Vector3 spread = new Vector3(0, Random.Range(-projectileSpread, projectileSpread), 0);
+        Quaternion spreadRotation = Quaternion.Euler(spread);
+        Vector3 spreadDirection = spreadRotation * firePoint.forward;
+
+        // Apply force to the projectile
+        rb.AddForce(spreadDirection * projectileSpeed, ForceMode.Impulse);
+
+        // destroy the projectile after a set amount of time
+        Destroy(projectile, projectileLifeTime);
+    }
+
+    void Dead()
+    {
+        Debug.Log("Turret is dead");
+        Destroy(gameObject);
     }
 
     void OnDrawGizmosSelected() 
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);   
+        Gizmos.DrawWireSphere(transform.position, visionRange);   
     }
 
 }

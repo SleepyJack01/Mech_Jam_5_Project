@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8385802692149733134}
   - component: {fileID: 2452468840675505509}
   - component: {fileID: 4747761806529224208}
-  - component: {fileID: 3558332214888063327}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -85,29 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &3558332214888063327
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 35890591646812772}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &1310739009245326234
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,7 +95,6 @@ GameObject:
   - component: {fileID: 2476955416506180100}
   - component: {fileID: 8827662577218900198}
   - component: {fileID: 966068577748974955}
-  - component: {fileID: 3373113659082302303}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -193,29 +168,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &3373113659082302303
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1310739009245326234}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &2646227141250562249
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,6 +213,8 @@ GameObject:
   - component: {fileID: 1706260613167876605}
   - component: {fileID: 576432488188033878}
   - component: {fileID: 3978840669358416735}
+  - component: {fileID: 2066171783085987187}
+  - component: {fileID: 2100966020791135616}
   m_Layer: 0
   m_Name: Turret Enemy
   m_TagString: Untagged
@@ -353,8 +307,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 3.5224915, z: 1}
+  m_Center: {x: 0, y: 1.2612457, z: 0}
 --- !u!114 &576432488188033878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,10 +326,21 @@ MonoBehaviour:
   firePoint: {fileID: 8433512139755680999}
   bulletPrefab: {fileID: 4247524185024124897, guid: adb2f88b2f6ab464f82ed4f9215722c5,
     type: 3}
-  range: 15
+  shootSound:
+  - {fileID: 8300000, guid: 21face996a7148e48937e87c2e4fd5a0, type: 3}
+  - {fileID: 8300000, guid: 299806d6faa30834e9501d7ea4e3b640, type: 3}
+  - {fileID: 8300000, guid: f179f4dc44d8de74081c055d36835a53, type: 3}
+  - {fileID: 8300000, guid: 97928792d43d16640956572b20f055fd, type: 3}
+  - {fileID: 8300000, guid: a8ae94806001c5d458df5da998e7a882, type: 3}
+  visionRange: 15
   turretRotationSpeed: 2
-  fireRate: 1
+  fireRate: 0.6
+  burstRate: 0.1
   projectileSpeed: 30
+  projectileSpread: 12
+  projectileLifeTime: 5
+  fovAngle: 45
+  burstFireMode: 1
 --- !u!114 &3978840669358416735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,6 +354,118 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+--- !u!208 &2066171783085987187
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3474633938653203941}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!82 &2100966020791135616
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3474633938653203941}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 50
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4000258691185686827
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +477,6 @@ GameObject:
   - component: {fileID: 7310966989192851925}
   - component: {fileID: 8856529604960537431}
   - component: {fileID: 4428217159525077673}
-  - component: {fileID: 4767611501371990919}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -474,24 +550,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4767611501371990919
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4000258691185686827}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

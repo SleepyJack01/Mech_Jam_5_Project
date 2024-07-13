@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyHealthHandler : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class EnemyHealthHandler : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+
         meshRenderer = GetComponent<MeshRenderer>();
         if (meshRenderer != null)
         {
@@ -28,6 +30,7 @@ public class EnemyHealthHandler : MonoBehaviour
         }
     }
 
+    // This method is called from PlayerBullet.cs and applies damage to the enemy.
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -36,7 +39,7 @@ public class EnemyHealthHandler : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Die();
+            SendMessage("Dead", SendMessageOptions.DontRequireReceiver);
         }
     }
 
@@ -63,10 +66,5 @@ public class EnemyHealthHandler : MonoBehaviour
         {
             childrensMeshRenderers[i].material.color = childrensOriginalColors[i];
         }
-    }
-
-    void Die()
-    {
-        Destroy(gameObject);
     }
 }

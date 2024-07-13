@@ -107,5 +107,10 @@ public class Chaser : MonoBehaviour
 
         attackCountdown -= Time.deltaTime;
     }
+
+    void Dead()
+    {
+        Destroy(gameObject);
+    }
     
 }
