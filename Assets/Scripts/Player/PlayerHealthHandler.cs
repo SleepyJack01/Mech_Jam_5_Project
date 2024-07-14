@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHealthHandler : MonoBehaviour
 {
     [SerializeField] int maxHealth = 100;
-    private int currentHealth;
+    public int currentHealth;
     private MeshRenderer meshRenderer;
     private Color originalColor;
 
