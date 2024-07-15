@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class PlayerHealthHandler : MonoBehaviour
 {
-    [SerializeField] int maxHealth = 100;
-    public int currentHealth;
+    public static int maxHealth = 100;
+    static public int currentHealth;
+    [SerializeField] private HealthBarHandler healthBar;
     private MeshRenderer meshRenderer;
     private Color originalColor;
 
     void Start()
     {
         currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
         meshRenderer = GetComponent<MeshRenderer>();
         if (meshRenderer != null)
         {
@@ -29,6 +31,7 @@ public class PlayerHealthHandler : MonoBehaviour
         }
 
         currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
         StartCoroutine(FlashRed());
 
         // Check if the player's health is less than or equal to 0 if so, respawn the player

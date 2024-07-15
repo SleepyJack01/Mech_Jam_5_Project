@@ -595,6 +595,7 @@ GameObject:
   - component: {fileID: 9160461239084404081}
   - component: {fileID: 5305982737399534404}
   - component: {fileID: 6018080520359916936}
+  - component: {fileID: 6490728078990792150}
   m_Layer: 0
   m_Name: --PlayerController--
   m_TagString: Player
@@ -754,8 +755,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71bb103d94bc4b468ad7be9df74061c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
+  healthBar: {fileID: 0}
+--- !u!208 &6490728078990792150
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4162134295992271797}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4206845182007301384
 GameObject:
   m_ObjectHideFlags: 0

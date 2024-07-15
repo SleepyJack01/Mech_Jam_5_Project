@@ -164,7 +164,7 @@ public class RifleBot : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
 
-        Vector3 spread = new Vector3(Random.Range(-projectileSpread, projectileSpread), Random.Range(-projectileSpread, projectileSpread), Random.Range(-projectileSpread, projectileSpread));
+        Vector3 spread = new Vector3(Random.Range(-projectileSpread, projectileSpread), 0, Random.Range(-projectileSpread, projectileSpread));
         Quaternion spreadRotation = Quaternion.Euler(spread);
         Vector3 spreadDirection = spreadRotation * bulletSpawnPoint.forward;
 
