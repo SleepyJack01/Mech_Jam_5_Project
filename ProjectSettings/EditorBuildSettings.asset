@@ -6,9 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/Game Scenes/Level 1.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
     path: Assets/Scenes/Test Scenes/Character Controller Test Level.unity
     guid: 83326b5bee1891547b8f1b49a5a6a0b5
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/MainMenu.unity
+    guid: a4fce7ecf9f58164b9f572cb910a447e
+  - enabled: 0
+    path: Assets/Scenes/Game Scenes/OpeningCutScene.unity
+    guid: c6df46198f34aa443b303cc581576f20
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/Wave 1.unity
+    guid: c14a5abf0f31f154487306538e43dd8c
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/Wave 2.unity
+    guid: c3ca7dceaac920542ab06c4ffdcfd9ac
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/Wave 3.unity
+    guid: fa8947f4c6cc299469f771d8eb3c24f3
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/Victory.unity
+    guid: f6d87e0a65415b14a802fec09f572bc7
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/GameOver.unity
+    guid: 8af0e35dd541b5b45a08298dd891b8df
   m_configObjects: {}

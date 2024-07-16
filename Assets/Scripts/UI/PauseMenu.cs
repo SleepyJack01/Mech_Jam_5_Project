@@ -8,6 +8,8 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool isPaused = false;
     [SerializeField] private GameObject PauseCanvas;
+    [SerializeField] private GameObject HealthBar;
+    [SerializeField] private GameObject AmmoBar;
     
     void Start()
     {
@@ -17,6 +19,8 @@ public class PauseMenu : MonoBehaviour
     void Pause()
     {
         PauseCanvas.SetActive(true);
+        HealthBar.SetActive(false);
+        AmmoBar.SetActive(false);
         isPaused = true;
         Time.timeScale = 0f;
     }
@@ -24,12 +28,15 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         PauseCanvas.SetActive(false);
+        HealthBar.SetActive(true);
+        AmmoBar.SetActive(true);
         isPaused = false;
     }
 
     public void MainMenuButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1); // this needs to be changed to the main menu scene
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
     }
 
     public void OnStartButton(InputAction.CallbackContext context)
