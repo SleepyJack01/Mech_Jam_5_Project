@@ -20,6 +20,8 @@ public class SuicideBotBehaviour : MonoBehaviour
     [SerializeField] private float modelBobAmount = 0.1f;
     [SerializeField] private float modelBobSpeed = 1f;
 
+    private bool hasBlownUp = false;
+
     
 
     void Start()
@@ -102,7 +104,7 @@ public class SuicideBotBehaviour : MonoBehaviour
             float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
             if (distanceToPlayer <= attackRange)
             {
-                BlowUp();
+                Dead();
             }
         }
     }
@@ -119,8 +121,13 @@ public class SuicideBotBehaviour : MonoBehaviour
 
     void BlowUp()
     {
+        if (hasBlownUp)
+        {
+            return;
+        }
         GameObject explosion = Instantiate(explosionPrefab, explosionPoint.position, explosionPoint.rotation);
         Destroy(gameObject);
+        hasBlownUp = true;
     }
 
     void Dead()

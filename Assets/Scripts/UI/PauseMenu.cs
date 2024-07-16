@@ -1,50 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool Paused = false;
-    public GameObject PauseCanvas;
+    public static bool isPaused = false;
+    [SerializeField] private GameObject PauseCanvas;
+    [SerializeField] private GameObject HealthBar;
+    [SerializeField] private GameObject AmmoBar;
     
-    // makes sure game is running
     void Start()
     {
         Time.timeScale = 1f;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if(Paused)
-            {
-                Play();
-            }
-            else
-            {
-                Stop();
-            }
-        }
-    }
-    void Stop()
+    void Pause()
     {
         PauseCanvas.SetActive(true);
-            Time.timeScale = 0f;
-        Paused = true;
-
+        HealthBar.SetActive(false);
+        AmmoBar.SetActive(false);
+        isPaused = true;
+        Time.timeScale = 0f;
     }
-    public void Play()
+    public void Resume()
     {
+        Time.timeScale = 1f;
         PauseCanvas.SetActive(false);
-            Time.timeScale = 1f;
-        Paused = false;
+        HealthBar.SetActive(true);
+        AmmoBar.SetActive(true);
+        isPaused = false;
     }
 
     public void MainMenuButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
+    }
+
+    public void OnStartButton(InputAction.CallbackContext context)
+    {
+        if (!isPaused)
+        {
+            Pause();
+        }
+        else
+        {
+            Resume();
+        } 
     }
 }

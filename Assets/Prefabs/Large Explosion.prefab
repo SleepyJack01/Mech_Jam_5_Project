@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1336119286986980370}
   - component: {fileID: 8249077599487505488}
   - component: {fileID: 5661136787734485126}
+  - component: {fileID: 6510866694763502843}
   - component: {fileID: 6642599348317385429}
   m_Layer: 0
   m_Name: Large Explosion
@@ -106,6 +107,21 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6510866694763502843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7227541319607896379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea0f3b53fb47a2e4284e2924c834368c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
+  explosionlifetime: 0.5
+  explosionRadius: 2
 --- !u!82 &6642599348317385429
 AudioSource:
   m_ObjectHideFlags: 0

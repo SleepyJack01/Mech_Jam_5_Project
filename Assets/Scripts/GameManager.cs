@@ -12,6 +12,11 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+
+        player = GameObject.FindGameObjectWithTag("Player");
+
         if (instance == null)
         {
             instance = this;

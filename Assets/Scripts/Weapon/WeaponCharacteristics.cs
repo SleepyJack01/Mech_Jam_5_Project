@@ -7,6 +7,7 @@ public class WeaponCharacteristics : MonoBehaviour
     [Header("References")]
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] Transform projectileSpawnPoint;
+    [SerializeField] AmmoCountHandler ammoCountHandler;
     private AudioSource audioSource;
 
     [Header("Projectile Variables")]
@@ -18,8 +19,8 @@ public class WeaponCharacteristics : MonoBehaviour
     private bool isShootingCooldown= false;
 
     [Header("Ammo Variables")]
-    [SerializeField] float maxAmmoCount = 10;
-    private float currentAmmoCount;
+    [SerializeField] int maxAmmoCount = 10;
+    private int currentAmmoCount;
 
     [Header("Reload Variables")]
     [SerializeField] float reloadTime = 2f;
@@ -30,10 +31,18 @@ public class WeaponCharacteristics : MonoBehaviour
     [SerializeField] AudioClip reloadStartSound;
     [SerializeField] AudioClip reloadEndSound;
 
+    //on active
+    private void OnEnable()
+    {
+        ammoCountHandler.SetMaxAmmoCount(maxAmmoCount);
+        ammoCountHandler.SetAmmoCount(currentAmmoCount);
+    }
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         currentAmmoCount = maxAmmoCount;
+        ammoCountHandler.SetMaxAmmoCount(maxAmmoCount);
     }
 
     public void FireProjectile()
@@ -79,6 +88,7 @@ public class WeaponCharacteristics : MonoBehaviour
 
         // Decrease the ammo count
         currentAmmoCount--;
+        ammoCountHandler.SetAmmoCount(currentAmmoCount);
 
         // Play the fire sound
         audioSource.PlayOneShot(fireSound[Random.Range(0, fireSound.Length)]);
@@ -121,6 +131,7 @@ public class WeaponCharacteristics : MonoBehaviour
         Debug.Log("Reloading...");
         yield return new WaitForSeconds(reloadTime);
         currentAmmoCount = maxAmmoCount;
+        ammoCountHandler.SetAmmoCount(currentAmmoCount);
         audioSource.PlayOneShot(reloadEndSound);
         yield return new WaitForSeconds(0.8f);
         isReloading = false;

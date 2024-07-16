@@ -259,10 +259,11 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4247524185024124897, guid: ac3ba625d4cfe514fb60cdfcb0f551df,
     type: 3}
   projectileSpawnPoint: {fileID: 2538936726614394682}
+  ammoCountHandler: {fileID: 0}
   projectileSpeed: 30
   fireRate: 0.8
   projectileLifeTime: 0.3
-  projectileAmount: 8
+  projectileAmount: 10
   projectileSpread: 30
   maxAmmoCount: 4
   reloadTime: 1
@@ -470,6 +471,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4247524185024124897, guid: 5ee38a8af40617444bb1cedd37e26be8,
     type: 3}
   projectileSpawnPoint: {fileID: 8644996155994419704}
+  ammoCountHandler: {fileID: 0}
   projectileSpeed: 40
   fireRate: 0.6
   projectileLifeTime: 0.3
@@ -595,6 +597,7 @@ GameObject:
   - component: {fileID: 9160461239084404081}
   - component: {fileID: 5305982737399534404}
   - component: {fileID: 6018080520359916936}
+  - component: {fileID: 6490728078990792150}
   m_Layer: 0
   m_Name: --PlayerController--
   m_TagString: Player
@@ -754,7 +757,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71bb103d94bc4b468ad7be9df74061c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  healthBar: {fileID: 0}
+--- !u!208 &6490728078990792150
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4162134295992271797}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4206845182007301384
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,7 +875,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4247524185024124897, guid: 933f9a869f3ef8c4eaff07ee06e7af3f,
     type: 3}
   projectileSpawnPoint: {fileID: 3164927063684471094}
-  projectileSpeed: 100
+  ammoCountHandler: {fileID: 0}
+  projectileSpeed: 80
   fireRate: 1.2
   projectileLifeTime: 2
   projectileAmount: 1
@@ -1116,6 +1136,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4247524185024124897, guid: 7b198354931db4b49a00de49c0f390f0,
     type: 3}
   projectileSpawnPoint: {fileID: 7519804409384161304}
+  ammoCountHandler: {fileID: 0}
   projectileSpeed: 40
   fireRate: 0.1
   projectileLifeTime: 0.5
@@ -1269,7 +1290,6 @@ GameObject:
   - component: {fileID: 57182819764938699}
   - component: {fileID: 4908753391910387303}
   - component: {fileID: 2262760990686509945}
-  - component: {fileID: 6553630368161258983}
   - component: {fileID: 3896600987277871098}
   m_Layer: 0
   m_Name: face
@@ -1347,27 +1367,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6553630368161258983
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7445327037349916950}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!222 &3896600987277871098
 CanvasRenderer:
   m_ObjectHideFlags: 0

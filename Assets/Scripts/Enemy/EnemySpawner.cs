@@ -35,6 +35,12 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
+        if (enemies.Length == 0)
+        {
+            Debug.LogWarning("No enemies found for enemy spawner");
+            return;
+        }
+
         // get random enemy and spawn point
         GameObject enemy = enemies[Random.Range(0, enemies.Length)];
         Transform spawnPoint = enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)];
