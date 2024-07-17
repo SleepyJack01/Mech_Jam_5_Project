@@ -616,7 +616,12 @@ PrefabInstance:
     - target: {fileID: 3484647720169112738, guid: 15bc35e64b01bce49b78d183d195087f,
         type: 3}
       propertyPath: spawnRate
-      value: 0.2
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484647720169112738, guid: 15bc35e64b01bce49b78d183d195087f,
+        type: 3}
+      propertyPath: enemiesPerWave
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3484647720169112738, guid: 15bc35e64b01bce49b78d183d195087f,
         type: 3}
@@ -2251,7 +2256,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0bf95ebe7c26d504ca0370e5f54ad9df,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.00000008940696
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0bf95ebe7c26d504ca0370e5f54ad9df,
         type: 3}
