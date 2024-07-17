@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHealthHandler : MonoBehaviour
 {
-    public static int maxHealth = 100;
+    public static int maxHealth = 150;
     static public int currentHealth;
     [SerializeField] private HealthBarHandler healthBar;
     private MeshRenderer meshRenderer;
@@ -37,7 +37,7 @@ public class PlayerHealthHandler : MonoBehaviour
         // Check if the player's health is less than or equal to 0 if so, respawn the player
         if (currentHealth <= 0)
         {
-            GameManager.instance.RespawnPlayer();
+            GameManager.instance.GameOver();
         }
     }
 

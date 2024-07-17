@@ -357,7 +357,7 @@ MonoBehaviour:
     type: 3}
   bulletSpawnPoint: {fileID: 2939529397306436424}
   modelTransform: {fileID: 7097560628298039115}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: -1823307527889885663}
   shootSound:
   - {fileID: 8300000, guid: 21face996a7148e48937e87c2e4fd5a0, type: 3}
   - {fileID: 8300000, guid: 299806d6faa30834e9501d7ea4e3b640, type: 3}

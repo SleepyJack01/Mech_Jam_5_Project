@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [Header("Player References")]
-    [SerializeField] Transform playerRespawnPoint;
-    [SerializeField] GameObject player;
 
+    [Header("Player References")]
+    [SerializeField] GameObject player;
+    [SerializeField] Animator gameOverAnim;
+    private int enemeiesLeftInScene;
     void Awake()
     {
         Cursor.lockState = CursorLockMode.Confined;
@@ -27,24 +29,40 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void RespawnPlayer()
+    public void Update()
     {
-        StartCoroutine(Respawn());
+        enemeiesLeftInScene = GameObject.FindGameObjectsWithTag("Enemy").Length;
+
+        if (enemeiesLeftInScene == 0 && EnemySpawner.enemiesRemaining == 0)
+        {
+            NextLevel();
+        }
+        Debug.Log(EnemySpawner.enemiesRemaining);
     }
 
-    IEnumerator Respawn()
+    public void GameOver()
+    {
+        StartCoroutine(GameOverSequence());
+    }
+
+    IEnumerator GameOverSequence()
     {
         player.SetActive(false);
-        Debug.Log("Player died.");
+        yield return new WaitForSeconds(2f);
+        gameOverAnim.SetTrigger("FadeOut");
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("GameOver");
+    }
 
-        yield return new WaitForSeconds(3f);
+    public void NextLevel()
+    {
+        StartCoroutine(NextLevelSequence());
+    }
 
-        Debug.Log("Player respawned.");
-        player.transform.position = playerRespawnPoint.position;
-        player.SetActive(true);
-
-        player.GetComponent<PlayerHealthHandler>().ResetHealthAndColor();
-        player.GetComponentInChildren<WeaponCharacteristics>().ResetShootingCooldown();
-        player.GetComponentInChildren<WeaponCharacteristics>().ResetAmmo();
+    IEnumerator NextLevelSequence()
+    {
+        gameOverAnim.SetTrigger("FadeOut");
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
