@@ -9,11 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Test Scenes/Character Controller Test Level.unity
     guid: 83326b5bee1891547b8f1b49a5a6a0b5
   - enabled: 1
+    path: Assets/Scenes/Game Scenes/Intro.unity
+    guid: efd57a35f27914b4bae5fd7f98ac017a
+  - enabled: 1
     path: Assets/Scenes/Game Scenes/MainMenu.unity
     guid: a4fce7ecf9f58164b9f572cb910a447e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Game Scenes/OpeningCutScene.unity
     guid: c6df46198f34aa443b303cc581576f20
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/OpeningCutScenePart2.unity
+    guid: 3a49ee37c66b0af4788efb4ea5b03e54
   - enabled: 1
     path: Assets/Scenes/Game Scenes/Wave 1.unity
     guid: c14a5abf0f31f154487306538e43dd8c

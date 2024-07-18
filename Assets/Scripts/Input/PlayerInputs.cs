@@ -80,6 +80,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Additional cutscene Inputs"",
+                    ""type"": ""Button"",
+                    ""id"": ""eb99f971-b75d-498c-a1d0-5110fff367fd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -313,6 +322,50 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Reload"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8e16fa36-8f7e-47f7-a7e9-9a188d47c095"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Additional cutscene Inputs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5a623114-2ac5-40cd-aa9f-3dfc7aedcb45"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Additional cutscene Inputs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5a5635b8-9428-45a6-938c-26815c5ca981"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Additional cutscene Inputs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4b2992de-c07e-43e1-ab15-07ec3ad33524"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Additional cutscene Inputs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -355,6 +408,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_PlayerControls_MenuButton = m_PlayerControls.FindAction("Menu Button", throwIfNotFound: true);
         m_PlayerControls_WeaponCycle = m_PlayerControls.FindAction("Weapon Cycle", throwIfNotFound: true);
         m_PlayerControls_Reload = m_PlayerControls.FindAction("Reload", throwIfNotFound: true);
+        m_PlayerControls_AdditionalcutsceneInputs = m_PlayerControls.FindAction("Additional cutscene Inputs", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -422,6 +476,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerControls_MenuButton;
     private readonly InputAction m_PlayerControls_WeaponCycle;
     private readonly InputAction m_PlayerControls_Reload;
+    private readonly InputAction m_PlayerControls_AdditionalcutsceneInputs;
     public struct PlayerControlsActions
     {
         private @PlayerInputs m_Wrapper;
@@ -432,6 +487,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @MenuButton => m_Wrapper.m_PlayerControls_MenuButton;
         public InputAction @WeaponCycle => m_Wrapper.m_PlayerControls_WeaponCycle;
         public InputAction @Reload => m_Wrapper.m_PlayerControls_Reload;
+        public InputAction @AdditionalcutsceneInputs => m_Wrapper.m_PlayerControls_AdditionalcutsceneInputs;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -459,6 +515,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Reload.started += instance.OnReload;
             @Reload.performed += instance.OnReload;
             @Reload.canceled += instance.OnReload;
+            @AdditionalcutsceneInputs.started += instance.OnAdditionalcutsceneInputs;
+            @AdditionalcutsceneInputs.performed += instance.OnAdditionalcutsceneInputs;
+            @AdditionalcutsceneInputs.canceled += instance.OnAdditionalcutsceneInputs;
         }
 
         private void UnregisterCallbacks(IPlayerControlsActions instance)
@@ -481,6 +540,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Reload.started -= instance.OnReload;
             @Reload.performed -= instance.OnReload;
             @Reload.canceled -= instance.OnReload;
+            @AdditionalcutsceneInputs.started -= instance.OnAdditionalcutsceneInputs;
+            @AdditionalcutsceneInputs.performed -= instance.OnAdditionalcutsceneInputs;
+            @AdditionalcutsceneInputs.canceled -= instance.OnAdditionalcutsceneInputs;
         }
 
         public void RemoveCallbacks(IPlayerControlsActions instance)
@@ -524,5 +586,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnMenuButton(InputAction.CallbackContext context);
         void OnWeaponCycle(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
+        void OnAdditionalcutsceneInputs(InputAction.CallbackContext context);
     }
 }

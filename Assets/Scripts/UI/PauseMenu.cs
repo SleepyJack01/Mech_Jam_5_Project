@@ -14,6 +14,9 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
+        PauseCanvas.SetActive(false);
+        HealthBar.SetActive(true);
+        AmmoBar.SetActive(true);
     }
 
     void Pause()
@@ -36,7 +39,7 @@ public class PauseMenu : MonoBehaviour
     public void MainMenuButton()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void OnStartButton(InputAction.CallbackContext context)
