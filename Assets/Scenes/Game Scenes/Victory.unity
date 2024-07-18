@@ -319,6 +319,12 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
         type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[0].character.background
+      value: 
+      objectReference: {fileID: 21300000, guid: 0fa126d36a0e874419d6e679bd00ea41,
+        type: 3}
+    - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
+        type: 3}
       propertyPath: dialogue.dialogueLines.Array.data[0].character.imageRight
       value: 
       objectReference: {fileID: 21300000, guid: 5c57619e7e3acf14bb6735cb74ba8e6a,
@@ -355,9 +361,21 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
         type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[1].character.background
+      value: 
+      objectReference: {fileID: 21300000, guid: 0fa126d36a0e874419d6e679bd00ea41,
+        type: 3}
+    - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
+        type: 3}
       propertyPath: dialogue.dialogueLines.Array.data[1].character.imageRight
       value: 
       objectReference: {fileID: 21300000, guid: 5c57619e7e3acf14bb6735cb74ba8e6a,
+        type: 3}
+    - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
+        type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[2].character.background
+      value: 
+      objectReference: {fileID: 21300000, guid: 0fa126d36a0e874419d6e679bd00ea41,
         type: 3}
     - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
         type: 3}
@@ -369,7 +387,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogue.dialogueLines.Array.data[3].character.background
       value: 
-      objectReference: {fileID: 21300000, guid: 9522b2c5bb767a042b7e82a90e3f931b,
+      objectReference: {fileID: 21300000, guid: 0fa126d36a0e874419d6e679bd00ea41,
         type: 3}
     - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
         type: 3}
@@ -381,7 +399,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogue.dialogueLines.Array.data[4].character.background
       value: 
-      objectReference: {fileID: 21300000, guid: 9522b2c5bb767a042b7e82a90e3f931b,
+      objectReference: {fileID: 21300000, guid: 0fa126d36a0e874419d6e679bd00ea41,
         type: 3}
     - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
         type: 3}
@@ -393,7 +411,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogue.dialogueLines.Array.data[5].character.background
       value: 
-      objectReference: {fileID: 21300000, guid: 9522b2c5bb767a042b7e82a90e3f931b,
+      objectReference: {fileID: 21300000, guid: 0fa126d36a0e874419d6e679bd00ea41,
         type: 3}
     - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
         type: 3}
@@ -405,7 +423,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogue.dialogueLines.Array.data[6].character.background
       value: 
-      objectReference: {fileID: 21300000, guid: 9522b2c5bb767a042b7e82a90e3f931b,
+      objectReference: {fileID: 21300000, guid: 0fa126d36a0e874419d6e679bd00ea41,
         type: 3}
     - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
         type: 3}
@@ -417,7 +435,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogue.dialogueLines.Array.data[7].character.background
       value: 
-      objectReference: {fileID: 21300000, guid: 9522b2c5bb767a042b7e82a90e3f931b,
+      objectReference: {fileID: 21300000, guid: 0fa126d36a0e874419d6e679bd00ea41,
         type: 3}
     - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
         type: 3}
@@ -429,7 +447,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogue.dialogueLines.Array.data[8].character.background
       value: 
-      objectReference: {fileID: 21300000, guid: 9522b2c5bb767a042b7e82a90e3f931b,
+      objectReference: {fileID: 21300000, guid: 0fa126d36a0e874419d6e679bd00ea41,
         type: 3}
     - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
         type: 3}
@@ -441,7 +459,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogue.dialogueLines.Array.data[9].character.background
       value: 
-      objectReference: {fileID: 21300000, guid: 9522b2c5bb767a042b7e82a90e3f931b,
+      objectReference: {fileID: 21300000, guid: 0fa126d36a0e874419d6e679bd00ea41,
         type: 3}
     - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
         type: 3}
@@ -453,7 +471,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogue.dialogueLines.Array.data[10].character.background
       value: 
-      objectReference: {fileID: 21300000, guid: 9522b2c5bb767a042b7e82a90e3f931b,
+      objectReference: {fileID: 21300000, guid: 0fa126d36a0e874419d6e679bd00ea41,
         type: 3}
     - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
         type: 3}
@@ -465,7 +483,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogue.dialogueLines.Array.data[11].character.background
       value: 
-      objectReference: {fileID: 21300000, guid: 9522b2c5bb767a042b7e82a90e3f931b,
+      objectReference: {fileID: 21300000, guid: 0fa126d36a0e874419d6e679bd00ea41,
         type: 3}
     - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
         type: 3}
@@ -477,7 +495,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogue.dialogueLines.Array.data[12].character.background
       value: 
-      objectReference: {fileID: 21300000, guid: 9522b2c5bb767a042b7e82a90e3f931b,
+      objectReference: {fileID: 21300000, guid: 0fa126d36a0e874419d6e679bd00ea41,
         type: 3}
     - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
         type: 3}
@@ -489,7 +507,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogue.dialogueLines.Array.data[13].character.background
       value: 
-      objectReference: {fileID: 21300000, guid: 9522b2c5bb767a042b7e82a90e3f931b,
+      objectReference: {fileID: 21300000, guid: 0fa126d36a0e874419d6e679bd00ea41,
         type: 3}
     - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
         type: 3}
@@ -501,7 +519,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogue.dialogueLines.Array.data[14].character.background
       value: 
-      objectReference: {fileID: 21300000, guid: 9522b2c5bb767a042b7e82a90e3f931b,
+      objectReference: {fileID: 21300000, guid: 0fa126d36a0e874419d6e679bd00ea41,
         type: 3}
     - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
         type: 3}
@@ -511,8 +529,58 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
         type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[5].character.IsTextBoxActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
+        type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[6].character.IsTextBoxActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
+        type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[7].character.IsTextBoxActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
+        type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[8].character.IsTextBoxActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
+        type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[9].character.IsTextBoxActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
+        type: 3}
       propertyPath: dialogue.dialogueLines.Array.data[0].character.leftImageOpacity
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
+        type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[10].character.IsTextBoxActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
+        type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[11].character.IsTextBoxActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
+        type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[12].character.IsTextBoxActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
+        type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[13].character.IsTextBoxActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
+        type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[14].character.IsTextBoxActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 26937752161908760, guid: c4028a06af2212746947decd59f6872b,
         type: 3}
@@ -794,6 +862,11 @@ PrefabInstance:
       propertyPath: sceneTransition
       value: 
       objectReference: {fileID: 1827009732}
+    - target: {fileID: 3453266011293640550, guid: c4028a06af2212746947decd59f6872b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3530822357653561308, guid: c4028a06af2212746947decd59f6872b,
         type: 3}
       propertyPath: m_Pivot.x

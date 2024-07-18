@@ -24,12 +24,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453364064566125635}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 3.124, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4841547312684116690}
+  m_Father: {fileID: 3446736497939842574}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3474633938653203941
 GameObject:
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  gunTransform: {fileID: 4841547312684116690}
+  gunTransform: {fileID: 3446736497939842574}
   firePoint: {fileID: 1340155385431521302}
   bulletPrefab: {fileID: 4247524185024124897, guid: adb2f88b2f6ab464f82ed4f9215722c5,
     type: 3}
@@ -384,12 +384,18 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4553763792336568573, guid: cbe4a4bbc628a834d889404c1021c5fa,
+    - targetCorrespondingSourceObject: {fileID: 6041540685991865377, guid: cbe4a4bbc628a834d889404c1021c5fa,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1340155385431521302}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbe4a4bbc628a834d889404c1021c5fa, type: 3}
+--- !u!4 &3446736497939842574 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6041540685991865377, guid: cbe4a4bbc628a834d889404c1021c5fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 8935873573705837103}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4841547312684116690 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4553763792336568573, guid: cbe4a4bbc628a834d889404c1021c5fa,
