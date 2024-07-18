@@ -8,7 +8,9 @@ public class PlayerHealthHandler : MonoBehaviour
     static public int currentHealth;
     [SerializeField] private HealthBarHandler healthBar;
     private MeshRenderer meshRenderer;
+    private MeshRenderer []childrensMeshRenderers;
     private Color originalColor;
+    private Color []childrensOriginalColors;
 
     void Start()
     {
@@ -18,6 +20,13 @@ public class PlayerHealthHandler : MonoBehaviour
         if (meshRenderer != null)
         {
             originalColor = meshRenderer.material.color;
+        }
+
+        childrensMeshRenderers = GetComponentsInChildren<MeshRenderer>();
+        childrensOriginalColors = new Color[childrensMeshRenderers.Length];
+        for (int i = 0; i < childrensMeshRenderers.Length; i++)
+        {
+            childrensOriginalColors[i] = childrensMeshRenderers[i].material.color;
         }
     }
 
@@ -51,13 +60,28 @@ public class PlayerHealthHandler : MonoBehaviour
     }
 
     // Function to flash the player red when taking damage
-    IEnumerator FlashRed()
+    private IEnumerator FlashRed()
     {
         if (meshRenderer != null)
         {
             meshRenderer.material.color = Color.red;
-            yield return new WaitForSeconds(0.1f);
+        }
+
+        foreach (MeshRenderer childMeshRenderer in childrensMeshRenderers)
+        {
+            childMeshRenderer.material.color = Color.red;
+        }
+
+        yield return new WaitForSeconds(0.1f);
+
+        if (meshRenderer != null)
+        {
             meshRenderer.material.color = originalColor;
+        }
+
+        for (int i = 0; i < childrensMeshRenderers.Length; i++)
+        {
+            childrensMeshRenderers[i].material.color = childrensOriginalColors[i];
         }
     }
 }

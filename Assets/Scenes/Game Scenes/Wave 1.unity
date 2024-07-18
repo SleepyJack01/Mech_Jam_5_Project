@@ -205,6 +205,11 @@ PrefabInstance:
       objectReference: {fileID: 1555520321}
     - target: {fileID: 5563509821744452443, guid: e0c6b30ce1f699444a1997f975d5deda,
         type: 3}
+      propertyPath: maxAmmoCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5563509821744452443, guid: e0c6b30ce1f699444a1997f975d5deda,
+        type: 3}
       propertyPath: ammoCountHandler
       value: 
       objectReference: {fileID: 1555520321}
@@ -4359,6 +4364,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Invisible Walls
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680466732784940844, guid: 9df0161f4180bf8408d5295f3c87f5de,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5680466732784940844, guid: 9df0161f4180bf8408d5295f3c87f5de,
         type: 3}

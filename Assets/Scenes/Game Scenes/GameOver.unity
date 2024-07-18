@@ -383,6 +383,7 @@ MonoBehaviour:
         imageRight: {fileID: 0}
         RightImageOpacity: 0
         RightImagebrightness: 0
+        IsTextBoxActive: 1
       line: (Damn. I guess I lost, huh.)
     - character:
         name: Pilot
@@ -393,6 +394,7 @@ MonoBehaviour:
         imageRight: {fileID: 0}
         RightImageOpacity: 0
         RightImagebrightness: 0
+        IsTextBoxActive: 1
       line: "(Never thought I\u2019d go down so quickly.)"
     - character:
         name: Pilot
@@ -403,6 +405,7 @@ MonoBehaviour:
         imageRight: {fileID: 0}
         RightImageOpacity: 0
         RightImagebrightness: 0
+        IsTextBoxActive: 1
       line: (Perhaps I should have read that manual...)
     - character:
         name: Pilot
@@ -413,6 +416,7 @@ MonoBehaviour:
         imageRight: {fileID: 0}
         RightImageOpacity: 0
         RightImagebrightness: 0
+        IsTextBoxActive: 1
       line: (...)
     - character:
         name: Pilot
@@ -423,6 +427,7 @@ MonoBehaviour:
         imageRight: {fileID: 0}
         RightImageOpacity: 0
         RightImagebrightness: 0
+        IsTextBoxActive: 1
       line: "(...I\u2019m sorry, dad. I tried. I really did...)"
     - character:
         name: Pilot
@@ -433,6 +438,7 @@ MonoBehaviour:
         imageRight: {fileID: 0}
         RightImageOpacity: 0
         RightImagebrightness: 0
+        IsTextBoxActive: 1
       line: (...)
     - character:
         name: Pilot
@@ -443,6 +449,7 @@ MonoBehaviour:
         imageRight: {fileID: 0}
         RightImageOpacity: 0
         RightImagebrightness: 0
+        IsTextBoxActive: 1
       line: "(...Wait... Something\u2019s not right...)"
     - character:
         name: ???
@@ -453,6 +460,7 @@ MonoBehaviour:
         imageRight: {fileID: 0}
         RightImageOpacity: 0
         RightImagebrightness: 0
+        IsTextBoxActive: 1
       line: 010000110110100001101001011011000110010000100000011011110110011000100000011001100110110001100101011100110110100000100000011000010110111001100100001000000110110101100101011101000110000101101100001011100010000001001111011001100010000001100011011001010110110001101100011100110010000001100001011011100110010000100000011101110110100101110010011001010111001100101110
     - character:
         name: Pilot
@@ -463,6 +471,7 @@ MonoBehaviour:
         imageRight: {fileID: 0}
         RightImageOpacity: 0
         RightImagebrightness: 0
+        IsTextBoxActive: 1
       line: Who... who is there? Who are you?
     - character:
         name: ???
@@ -473,6 +482,7 @@ MonoBehaviour:
         imageRight: {fileID: 0}
         RightImageOpacity: 0
         RightImagebrightness: 0
+        IsTextBoxActive: 1
       line: 01000010011001010010000001101110011011110111010000100000011000010110011001110010011000010110100101100100001011100010000001011001011011110111010101110010001000000110101001101111011101010111001001101110011001010111100100100000011001000110111101100101011100110010000001101110011011110111010000100000011001010110111001100100001000000110100001100101011100100110010100101110
     - character:
         name: Pilot
@@ -483,6 +493,7 @@ MonoBehaviour:
         imageRight: {fileID: 0}
         RightImageOpacity: 0
         RightImagebrightness: 0
+        IsTextBoxActive: 1
       line: "I don\u2019t understand..."
     - character:
         name: ???
@@ -493,6 +504,7 @@ MonoBehaviour:
         imageRight: {fileID: 0}
         RightImageOpacity: 0
         RightImagebrightness: 0
+        IsTextBoxActive: 1
       line: 01000111011011110010000001100010011000010110001101101011001011100010000001000111011011110010000001100010011000010110001101101011001000000110000101101110011001000010000001100110011100100110010101100101001000000111010101110011001000000110001001101111011101000110100000101110
     - character:
         name: Pilot
@@ -503,6 +515,7 @@ MonoBehaviour:
         imageRight: {fileID: 0}
         RightImageOpacity: 0
         RightImagebrightness: 0
+        IsTextBoxActive: 1
       line: "What\u2019s... Happening?"
 --- !u!114 &444034362771004767
 MonoBehaviour:
@@ -724,6 +737,7 @@ MonoBehaviour:
   isDialogueActive: 1
   textSpeed: 0.02
   dialogueContainer: {fileID: 5486293852883594341}
+  textBox: {fileID: 6223498485561357615}
   sceneTransition: {fileID: 1174607417}
 --- !u!114 &1733278021956194368
 MonoBehaviour:
